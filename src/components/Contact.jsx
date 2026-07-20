@@ -1,4 +1,4 @@
-import { openingHours, socials } from "../../constants/index.js";
+import { openingHours, socials, storeInfo } from "../../constants";
 import { useGSAP } from "@gsap/react";
 import { SplitText } from "gsap/all";
 import gsap from "gsap";
@@ -27,14 +27,14 @@ const Contact = () => {
         stagger: 0.02,
       })
       .to("#f-right-leaf", {
-        y: "-50",
+        y: -50,
         duration: 1,
         ease: "power1.inOut",
       })
       .to(
         "#f-left-leaf",
         {
-          y: "-50",
+          y: -50,
           duration: 1,
           ease: "power1.inOut",
         },
@@ -56,17 +56,17 @@ const Contact = () => {
       />
 
       <div className="content">
-        <h2>Where to Find Us</h2>
+        <h2>{storeInfo.heading}</h2>
 
         <div>
-          <h3>Visit Our Bar</h3>
-          <p>456, Raq Blvd. #404, Los Angeles, CA 90210</p>
+          <h3>Visit Our Restaurant</h3>
+          <p>{storeInfo.address}</p>
         </div>
 
         <div>
           <h3>Contact Us</h3>
-          <p>(555) 1234567890</p>
-          <p>hello@gmail.com</p>
+          <p>{storeInfo.contact.phone}</p>
+          <p>{storeInfo.contact.email}</p>
         </div>
 
         <div>
@@ -79,7 +79,7 @@ const Contact = () => {
         </div>
 
         <div>
-          <h3>Socials</h3>
+          <h3>Follow Us</h3>
 
           <div className="flex-center gap-5">
             {socials.map((social) => (
@@ -90,7 +90,7 @@ const Contact = () => {
                 rel="noopener noreferrer"
                 aria-label={social.name}
               >
-                <img src={social.icon} />
+                <img src={social.icon} alt={social.name} />
               </a>
             ))}
           </div>
